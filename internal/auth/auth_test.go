@@ -11,7 +11,7 @@ func TestGetAPIKey(t *testing.T) {
 	testHeader.Set("Authorization", "ApiKey 12345")
 
 	_, err := GetAPIKey(testHeader)
-	if err == nil {
+	if err != nil {
 		t.Errorf("Failed to extract API key with correct format: %s", err)
 	}
 
