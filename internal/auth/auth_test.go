@@ -1,8 +1,8 @@
 package auth
 
 import (
-	"testing"
 	"net/http"
+	"testing"
 )
 
 func TestGetAPIKey(t *testing.T) {
@@ -18,7 +18,7 @@ func TestGetAPIKey(t *testing.T) {
 	testHeader.Set("Authorization", "12345")
 	_, err = GetAPIKey(testHeader)
 	if err == nil {
-		t.Errorf("Error checking did not catch malformed authorization" )
+		t.Errorf("Error checking did not catch malformed authorization")
 	}
 
 	testHeader.Set("Authorization", "")
