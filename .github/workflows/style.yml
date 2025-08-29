@@ -1,0 +1,22 @@
+name: style
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23.0"
+
+      - name: Run Tests
+        run: test -z $(go fmt ./...); diff -q <(echo $?) <(echo "0") || exit 1
