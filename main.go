@@ -12,6 +12,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
+	//"github.com/pressly/goose/v3"
 
 	"github.com/bootdotdev/learn-cicd-starter/internal/database"
 
@@ -52,6 +53,10 @@ func main() {
 		dbQueries := database.New(db)
 		apiCfg.DB = dbQueries
 		log.Println("Connected to database!")
+		//err = goose.Up(db, "sql/schema")
+		//if err != nil {
+		//	log.Fatal(err)
+		//}
 	}
 
 	router := chi.NewRouter()
