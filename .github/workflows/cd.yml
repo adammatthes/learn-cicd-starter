@@ -31,7 +31,7 @@ jobs:
         run: ./scripts/buildprod.sh
 
       - name: Goose Migrations
-        run: goose -v -dir sql/schema up
+        run: sql/schema/migrateup.sh
 
       - id: auth
         name: Authenticate to gcloud
